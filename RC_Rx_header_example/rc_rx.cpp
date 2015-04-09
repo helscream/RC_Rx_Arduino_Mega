@@ -91,11 +91,12 @@ void init_rc_rx(){
 }
 
 void read_rc_rx(){
+  noInterrupts();
   CH1 = ((float)CH1_delta-(float)min_high_time)*100/(max_high_time-min_high_time);
   CH2 = ((float)CH2_delta-(float)min_high_time)*100/(max_high_time-min_high_time);
   CH3 = ((float)CH3_delta-(float)min_high_time)*100/(max_high_time-min_high_time);
   CH4 = ((float)CH4_delta-(float)min_high_time)*100/(max_high_time-min_high_time);
-
+  interrupts();
 }
 
 
